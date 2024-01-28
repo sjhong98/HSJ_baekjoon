@@ -1,14 +1,14 @@
-const readline = require('readline').createInterface({
+const rl = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout,
 });
 
 let input = [];
 
-readline.on('line', function(line) {
+rl.on('line', function(line) {
     input.push(line);
     if(input.length === 3) 
-        readline.close();
+        rl.close();
 }).on('close', function(){
     p = input.map(item => {return item.split(" ").map(item => {return +item})});
 	let val = (p[0][0]*p[1][1] + p[1][0]*p[2][1] + p[2][0]*p[0][1]) - (p[1][0]*p[0][1] + p[2][0]*p[1][1] + p[0][0]*p[2][1]);
